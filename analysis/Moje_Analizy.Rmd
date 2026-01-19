@@ -1,0 +1,84 @@
+---
+title: "Moje Analizy"
+output:
+  workflowr::wflow_html:
+    toc: false
+editor_options:
+  chunk_output_type: console
+---
+
+Zbiór danych mtcars zawiera informacje o 32 samochodach z 1974 roku. Dane pochodzą z magazinu Motor Trend i obejmują zużycie paliwa oraz parametry techniczne poszczególnych modeli.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+data("mtcars")
+library(dplyr)
+library(ggplot2)
+```
+
+```{r podstawowe_informacje}
+# podstawowe statystyki
+colMeans(mtcars[,c("mpg", "disp", "hp", "wt")])
+
+# liczba samochodów według liczby cylindrów
+mtcars %>% 
+  group_by(cyl) %>% 
+  summarise(ile = n())
+```
+
+```{r transformacje_danych}
+mtcars_filt <- mtcars %>% filter(hp > 100)
+
+mtcars <- mtcars %>% 
+  mutate(kategorie_cyl = case_when(
+    cyl == 4 ~ "4 cylindry",
+    cyl == 6 ~ "6 cylindrów", 
+    cyl == 8 ~ "8 cylindrów"
+  ))
+
+mtcars <- mtcars %>% 
+  mutate(efficient = ifelse(mpg > median(mpg), "wysoka", "niska"))
+```
+
+```{r wykres1}
+ggplot(mtcars, aes(x = hp, y = mpg, color = kategorie_cyl)) +
+  geom_point(size = 4) +
+  labs(title = "Zużycie paliwa vs Moc silnika",
+       x = "Moc (KM)",
+       y = "Miles per gallon",
+       color = "Liczba cylindrów") +
+  theme_minimal()
+```
+
+Wykres pokazuje wyraźną zależność - samochody o większej mocy silnika zużywają więcej paliwa. Samochody z 8 cylindrami mają najniższe wartości mpg.
+
+```{r wykres2}
+ggplot(mtcars, aes(x = reorder(kategorie_cyl, -mpg), y = mpg, fill = kategorie_cyl)) +
+  geom_boxplot() +
+  labs(title = "Rozkład zużycia paliwa według liczby cylindrów",
+       x = "Liczba cylindrów",
+       y = "Miles per gallon") +
+  theme_minimal()
+```
+
+Samochody z 4 cylindrami mają najwyższe zużycie paliwa (najlepszą efektywność), podczas gdy 8-cylindrowe mają najniższe.
+
+```{r wykres3}
+mtcars_summary <- mtcars %>% 
+  group_by(kategorie_cyl) %>% 
+  summarise(
+    srednia_masa = mean(wt),
+    srednia_moc = mean(hp),
+    srednia_spalanie = mean(mpg)
+  )
+
+ggplot(mtcars_summary, aes(x = srednia_masa, y = srednia_spalanie, size = srednia_moc, color = kategorie_cyl)) +
+  geom_point(alpha = 0.7) +
+  labs(title = "Średnia masa vs średnie spalanie według cylindrów",
+       x = "Średnia masa (tysiące funtów)",
+       y = "Średnie spalanie (mpg)",
+       size = "Średnia moc (KM)") +
+  theme_minimal()
+```
+
+Na tym wykresie widać, że większa masa pojazdu przekłada się na niższe spalanie. Kolor wskazuje liczbę cylindrów, a wielkość punktu moc silnika.

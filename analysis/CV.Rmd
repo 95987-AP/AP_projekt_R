@@ -1,0 +1,115 @@
+---
+title: "CV"
+output:
+  workflowr::wflow_html:
+    toc: false
+    code_folding: hide
+    code_downloads: false
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.header {
+  background-color: #4a90e2;
+  color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h2 {
+  color: #4a90e2;
+}
+
+.grey {
+  color: #666;
+}
+</style>
+
+<div class="header">
+<h1>Aleksander Pietrzak</h1>
+<p><strong>Student Informatyki</strong> | 95987@student.puls.edu.pl | Poznań</p>
+<p>GitHub: <a href="https://github.com/95987-AP" style="color: white;">github.com/95987-AP</a></p>
+</div>
+
+<div class="section">
+<h2>WYKSZTAŁCENIE</h2>
+
+<h3>Inżynier Informatyki i Inżynierii Danych</h3>
+<p class="grey">2022 - obecnie</p>
+<p><strong>Uniwersytet Przyrodniczy w Poznaniu/strong></p>
+<ul>
+<li>Specjalność: Data Science i Analityka</li>
+<li>Praca inżynierska: "Analiza danych z użyciem R i R Markdown"</li>
+<li>Programowanie w R, analiza danych, wizualizacja</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>DOŚWIADCZENIE</h2>
+
+<h3>Stażysta - Dział IT</h3>
+<p class="grey">czerwiec - sierpień 2023</p>
+<p><strong>Firma TechSoft, Poznań</strong></p>
+<ul>
+<li>Pomoc przy analizie danych sprzedażowych</li>
+<li>Tworzenie raportów w R Markdown</li>
+<li>Praca z bazami danych (SQL)</li>
+</ul>
+
+<br>
+
+<h3>Wolontariat</h3>
+<p class="grey">2022 - 2023</p>
+<p><strong>Fundacja "Pomoc Dzieciom"</strong></p>
+<ul>
+<li>Analiza danych z zbiórek</li>
+<li>Raporty i wykresy w Excelu i R</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>PROJEKTY</h2>
+
+<h3>Ta strona (Workflowr)</h3>
+<p>Strona z moimi analizami w R zrobiona w workflowr. Projekt na zaliczenie przedmiotu.</p>
+<p><em>Technologie: R, workflowr, git, R Markdown</em></p>
+<hr>
+
+<div class="section">
+<h2>UMIEJĘTNOŚCI</h2>
+
+<h3>Języki programowania</h3>
+<ul>
+<li><strong>R</strong></li>
+<li><strong>Python</strong></li>
+<li><strong>SQL</strong></li>
+</ul>
+
+<h3>Inne</h3>
+<ul>
+<li>RStudio</li>
+<li>Grafika komputerowa</li>
+<li>Język angielski - B2</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>ZAINTERESOWANIA</h2>
+<p>Sport, gry komputerowe, podróże</p>
+</div>

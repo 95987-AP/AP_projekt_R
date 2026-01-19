@@ -1,0 +1,124 @@
+---
+title: "Moje zainteresowania"
+author: "Aleksander Pietrzak"
+format:
+  revealjs:
+    embed-resources: true
+execute:
+  echo: false
+---
+
+## O mnie {background-color="#4a90e2"}
+
+### Aleksander Pietrzak
+### Student Informatyki i Inżynierii Danych
+### Uniwersytet Przyrodniczy w Poznaniu
+
+---
+
+## O mnie {background-color="#e8f0ff"}
+
+Twórczy Grafik Komputerowy z pasją do wizualnej narracji i interaktywnych doświadczeń cyfrowych.
+
+Specjalizuję się w projektowaniu graficznym z wykorzystaniem Adobe Photoshop i Affinity.
+Aktywnie śledzę i wdrażam najnowsze technologie AI w procesach projektowych, optymalizując workflow
+i tworząc innowacyjne rozwiązania. Poszukuję roli, w której mogę rozwijać kreatywne koncepcje graficzne.
+
+---
+
+## Moje zainteresowania {background-color="#f0f0f0"}
+
+### Analiza danych, programowanie w R, wizualizacja danych
+
+---
+
+## Moja pasja {background-color="#ffe8e8"}
+
+### Szybkie samochody 
+
+
+![Szybki samochód](../graphical_assets/lambo.jpg)
+
+
+---
+
+## Sport i rozrywka {background-color="#e8f8e8"}
+
+- Piłka nożna
+- Gry komputerowe
+- Podróże
+- Bieganie
+
+---
+
+## Zbiór danych mtcars {background-color="#e8e8f8"}
+
+Dane o 32 samochodach z 1974 roku:
+
+- Zużycie paliwa (mpg)
+- Liczba cylindrów (cyl)
+- Moc silnika (hp)
+- Waga (wt)
+
+---
+
+## Statystyki {background-color="#fff8e8"}
+
+```{r}
+library(dplyr)
+data("mtcars")
+mtcars %>%
+  summarise(
+    srednie_mpg = round(mean(mpg), 2),
+    srednia_moc = round(mean(hp), 2),
+    srednia_waga = round(mean(wt), 2)
+  )
+```
+
+Średnie wartości dla 32 samochodów z lat 70-tych.
+
+---
+
+## Wykres 1 {background-color="#f8e8f8"}
+
+### Moc vs Zużycie paliwa
+
+```{r}
+library(ggplot2)
+ggplot(mtcars, aes(x = hp, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3) +
+  labs(title = "Moc vs Zużycie paliwa",
+       x = "Moc (KM)",
+       y = "Spalanie (mpg)",
+       color = "Cylindry") +
+  theme_minimal()
+```
+
+Większa moc = większe zużycie paliwa
+
+---
+
+## Wykres 2 {background-color="#e8f8ff"}
+
+### Liczba samochodów według cylindrów
+
+```{r}
+ggplot(mtcars, aes(x = factor(cyl), fill = factor(cyl))) +
+  geom_bar() +
+  labs(title = "Rozkład cylindrów",
+       x = "Cylindry",
+       y = "Liczba samochodów") +
+  theme_minimal()
+```
+
+Najwięcej jest samochodów z 8 cylindrami
+
+---
+
+## Podsumowanie {background-color="#4a90e2"}
+
+
+# Dziękuję za uwagę!
+Prezentacja w Quarto z wykresami R ggplot2
+
+---

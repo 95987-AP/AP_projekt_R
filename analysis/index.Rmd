@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "Strona główna"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
@@ -8,4 +8,21 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+**Uniwersytet Przyrodniczy w Poznaniu** <img src="../graphical_assets/UPP.png" alt="UPP" width="500" style="float: right; margin-left: 20px;">
+
+Wydział Inżynierii Środowiska i Inżynierii Mechanicznej\
+Katedra Inżynierii Biosystemów\
+Kierunek: Informatyka i Inżynieria Danych\
+ul. Wojska Polskiego 50, 60-627 Poznań
+
+**Aleksander Pietrzak**
+
+Ta strona została wykonana w ramach projektu z przedmiotu "Programowanie w R".
+Użyłem workflowr do automatyzacji generowania raportów i wersjonowania kodu.
+
+---
+
+**Linki:**
+- [Moje CV](CV.html)
+- [Moje Analizy](Moje_Analizy.html)
+- [Moje Zainteresowania](Moje_Zainteresowania.html)
