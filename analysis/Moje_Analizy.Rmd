@@ -3,6 +3,7 @@ title: "Moje Analizy"
 output:
   workflowr::wflow_html:
     toc: false
+    code_folding: hide
 editor_options:
   chunk_output_type: console
 ---
@@ -10,7 +11,7 @@ editor_options:
 Zbiór danych mtcars zawiera informacje o 32 samochodach z 1974 roku. Dane pochodzą z magazinu Motor Trend i obejmują zużycie paliwa oraz parametry techniczne poszczególnych modeli.
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 data("mtcars")
 library(dplyr)
 library(ggplot2)
