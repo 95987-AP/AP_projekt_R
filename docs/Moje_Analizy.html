@@ -30,6 +30,7 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
@@ -226,6 +227,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -274,6 +278,14 @@ $(document).ready(function () {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 <h1 class="title toc-ignore">Moje Analizy</h1>
@@ -284,7 +296,7 @@ $(document).ready(function () {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -295,8 +307,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -309,9 +321,9 @@ aria-hidden="true"></span> </a>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>Projekt_AP_153847/</code> <span
@@ -334,21 +346,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R
-Markdown file created these results, you’ll want to first commit it to
-the Git repo. If you’re still working on the analysis, you can ignore
-this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -439,13 +448,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongd769821">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcom95987APAPprojektRtreeccbd00fd36bba244df46f6d52a6d8e12ee478b4ftargetblankccbd00fa">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> d769821
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/95987-AP/AP_projekt_R/tree/ccbd00fd36bba244df46f6d52a6d8e12ee478b4f" target="_blank">ccbd00f</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongd769821"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcom95987APAPprojektRtreeccbd00fd36bba244df46f6d52a6d8e12ee478b4ftargetblankccbd00fa"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -454,7 +465,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version d769821.
+The results in this page were generated with repository version
+<a href="https://github.com/95987-AP/AP_projekt_R/tree/ccbd00fd36bba244df46f6d52a6d8e12ee478b4f" target="_blank">ccbd00f</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -472,25 +484,11 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Untracked files:
-    Untracked:  analysis/.gitignore
-    Untracked:  analysis/CV.Rmd
-    Untracked:  analysis/Moje_Analizy.Rmd
-    Untracked:  analysis/Moje_Zainteresowania.qmd
-    Untracked:  graphical_assets/
-    Untracked:  renv.lock
-    Untracked:  renv/
-    Untracked:  setup.R
-
-Unstaged changes:
-    Modified:   .Rprofile
-    Modified:   .gitignore
-    Modified:   README.md
-    Modified:   analysis/_site.yml
-    Deleted:    analysis/about.Rmd
-    Modified:   analysis/index.Rmd
-    Deleted:    analysis/license.Rmd
+    Ignored:    .claude/
+    Ignored:    analysis/CV.html
+    Ignored:    analysis/Moje_Zainteresowania.html
+    Ignored:    renv/library/
+    Ignored:    renv/staging/
 
 </code></pre>
 <p>
@@ -506,9 +504,89 @@ have uncommitted changes.
 </div>
 <div id="versions" class="tab-pane fade">
 <p>
-There are no past versions. Publish this analysis with
-<code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/Moje_Analizy.Rmd</code>) and HTML
+(<code>docs/Moje_Analizy.html</code>) files. If you’ve configured a
+remote Git repository (see <code>?wflow_git_remote</code>), click on the
+hyperlinks in the table below to view the files as they were in that
+past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/95987-AP/AP_projekt_R/blob/ccbd00fd36bba244df46f6d52a6d8e12ee478b4f/analysis/Moje_Analizy.Rmd" target="_blank">ccbd00f</a>
+</td>
+<td>
+95987-AP
+</td>
+<td>
+2026-01-19
+</td>
+<td>
+add code folding support
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/95987-AP/AP_projekt_R/blob/a55db80d1e9a91757f7f600d65aa58a8d64cd8ca/analysis/Moje_Analizy.Rmd" target="_blank">a55db80</a>
+</td>
+<td>
+95987-AP
+</td>
+<td>
+2026-01-19
+</td>
+<td>
+Aktualizacja projektu
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/95987-AP/AP_projekt_R/a55db80d1e9a91757f7f600d65aa58a8d64cd8ca/docs/Moje_Analizy.html" target="_blank">a55db80</a>
+</td>
+<td>
+95987-AP
+</td>
+<td>
+2026-01-19
+</td>
+<td>
+Aktualizacja projektu
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -516,22 +594,178 @@ There are no past versions. Publish this analysis with
 <p>Zbiór danych mtcars zawiera informacje o 32 samochodach z 1974 roku.
 Dane pochodzą z magazinu Motor Trend i obejmują zużycie paliwa oraz
 parametry techniczne poszczególnych modeli.</p>
+<pre class="r"><code># podstawowe statystyki
+colMeans(mtcars[,c(&quot;mpg&quot;, &quot;disp&quot;, &quot;hp&quot;, &quot;wt&quot;)])</code></pre>
 <pre><code>      mpg      disp        hp        wt 
  20.09062 230.72188 146.68750   3.21725 </code></pre>
+<pre class="r"><code># liczba samochodów według liczby cylindrów
+mtcars %&gt;% 
+  group_by(cyl) %&gt;% 
+  summarise(ile = n())</code></pre>
 <pre><code># A tibble: 3 × 2
     cyl   ile
   &lt;dbl&gt; &lt;int&gt;
 1     4    11
 2     6     7
 3     8    14</code></pre>
+<pre class="r"><code>mtcars_filt &lt;- mtcars %&gt;% filter(hp &gt; 100)
+
+mtcars &lt;- mtcars %&gt;% 
+  mutate(kategorie_cyl = case_when(
+    cyl == 4 ~ &quot;4 cylindry&quot;,
+    cyl == 6 ~ &quot;6 cylindrów&quot;, 
+    cyl == 8 ~ &quot;8 cylindrów&quot;
+  ))
+
+mtcars &lt;- mtcars %&gt;% 
+  mutate(efficient = ifelse(mpg &gt; median(mpg), &quot;wysoka&quot;, &quot;niska&quot;))</code></pre>
+<pre class="r"><code>ggplot(mtcars, aes(x = hp, y = mpg, color = kategorie_cyl)) +
+  geom_point(size = 4) +
+  labs(title = &quot;Zużycie paliwa vs Moc silnika&quot;,
+       x = &quot;Moc (KM)&quot;,
+       y = &quot;Miles per gallon&quot;,
+       color = &quot;Liczba cylindrów&quot;) +
+  theme_minimal()</code></pre>
 <p><img src="figure/Moje_Analizy.Rmd/wykres1-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-wykres1-1">
+Past versions of wykres1-1.png
+</button>
+</p>
+<div id="fig-wykres1-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/95987-AP/AP_projekt_R/blob/a55db80d1e9a91757f7f600d65aa58a8d64cd8ca/docs/figure/Moje_Analizy.Rmd/wykres1-1.png" target="_blank">a55db80</a>
+</td>
+<td>
+95987-AP
+</td>
+<td>
+2026-01-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Wykres pokazuje wyraźną zależność - samochody o większej mocy silnika
 zużywają więcej paliwa. Samochody z 8 cylindrami mają najniższe wartości
 mpg.</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = reorder(kategorie_cyl, -mpg), y = mpg, fill = kategorie_cyl)) +
+  geom_boxplot() +
+  labs(title = &quot;Rozkład zużycia paliwa według liczby cylindrów&quot;,
+       x = &quot;Liczba cylindrów&quot;,
+       y = &quot;Miles per gallon&quot;) +
+  theme_minimal()</code></pre>
 <p><img src="figure/Moje_Analizy.Rmd/wykres2-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-wykres2-1">
+Past versions of wykres2-1.png
+</button>
+</p>
+<div id="fig-wykres2-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/95987-AP/AP_projekt_R/blob/a55db80d1e9a91757f7f600d65aa58a8d64cd8ca/docs/figure/Moje_Analizy.Rmd/wykres2-1.png" target="_blank">a55db80</a>
+</td>
+<td>
+95987-AP
+</td>
+<td>
+2026-01-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Samochody z 4 cylindrami mają najwyższe zużycie paliwa (najlepszą
 efektywność), podczas gdy 8-cylindrowe mają najniższe.</p>
+<pre class="r"><code>mtcars_summary &lt;- mtcars %&gt;% 
+  group_by(kategorie_cyl) %&gt;% 
+  summarise(
+    srednia_masa = mean(wt),
+    srednia_moc = mean(hp),
+    srednia_spalanie = mean(mpg)
+  )
+
+ggplot(mtcars_summary, aes(x = srednia_masa, y = srednia_spalanie, size = srednia_moc, color = kategorie_cyl)) +
+  geom_point(alpha = 0.7) +
+  labs(title = &quot;Średnia masa vs średnie spalanie według cylindrów&quot;,
+       x = &quot;Średnia masa (tysiące funtów)&quot;,
+       y = &quot;Średnie spalanie (mpg)&quot;,
+       size = &quot;Średnia moc (KM)&quot;) +
+  theme_minimal()</code></pre>
 <p><img src="figure/Moje_Analizy.Rmd/wykres3-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-wykres3-1">
+Past versions of wykres3-1.png
+</button>
+</p>
+<div id="fig-wykres3-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/95987-AP/AP_projekt_R/blob/a55db80d1e9a91757f7f600d65aa58a8d64cd8ca/docs/figure/Moje_Analizy.Rmd/wykres3-1.png" target="_blank">a55db80</a>
+</td>
+<td>
+95987-AP
+</td>
+<td>
+2026-01-19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Na tym wykresie widać, że większa masa pojazdu przekłada się na
 niższe spalanie. Kolor wskazuje liczbę cylindrów, a wielkość punktu moc
 silnika.</p>
@@ -543,6 +777,7 @@ Session information
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>R version 4.4.2 (2024-10-31)
 Platform: aarch64-apple-darwin20
 Running under: macOS 26.2
@@ -632,6 +867,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
